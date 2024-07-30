@@ -3,18 +3,57 @@
   
     </head>
 
-    <body style="text-align: center; background-color:rgb(19, 19, 161) ">
+    <body style="text-align: center; background-color:rgb(0, 131, 50) ">
         <h1>Pedra papel tesoura</h1>
         <p>Informe o seu nome: </p>
         <input type="text" />
         <p>escolha uma opção<p>
 
-        <button style="padding: 10px 15px; margin: 10px;">Pedra</button>
-        <button style="padding: 10px 15px; margin: 10px;">Papel</button>
-        <button style="padding: 10px 15px; margin: 10px;">Tesoura</button>
+        <button style="padding: 10px 15px; margin: 10px" id="pedra">Pedra</button>
+        <button style="padding: 10px 15px; margin: 10px" id="papel">Papel</button>
+        <button style="padding: 10px 15px; margin: 10px" id="tesoura">Tesoura</button>
 
+        <p id="resultado"></p>
 
+        <script>
+            function geraJogadaAleatoria() {
+                const operacoes = ['pedra', 'papel', 'tesoura']
+                const operacaoAleatoria = Math.floor(Math.random() * 3)
+                return operacaoAleatoria
+            }
 
-        <p></p>
+            function jogar(jogadadojogador){
+                const jogadadocomputador = gerajogadaaleatoria()
+                let resultado = ''
+                if(jogadadojogador === jogadadocomputador)
+                resultado = 'empate'
+            else if(
+                (jogadadojogador === 'pedra' && jogadadocomputador === 'tesoura') ||
+                (jogadadojogador === 'tesoura' && jogadadocomputador === 'papel') ||
+                (jogadadojogador === 'papel' && jogadadocomputador === 'pedra')){
+                     resultado = 'VENCEU'
+                }else{
+                    resultado = 'PERDEU'
+                }
+                document.getElementById('resultado').innerText = resultado
+                }
+    
+            const pedra = document.getElementById('pedra');
+            pedra.addEventListener('click', function () {
+                alert(geraJogadaAleatoria())
+            })
+
+            const papel = document.getElementById('papel');
+           papel.addEventListener('click', function () {
+                alert(geraJogadaAleatoria())
+            })
+
+            const tesoura = document.getElementById('tesoura');
+           tesoura.addEventListener('click', function () {
+                alert(geraJogadaAleatoria())
+            })
+        </script>
     </body>
 </html>
+  <pt>
+  </pt>             
